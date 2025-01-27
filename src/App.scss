@@ -1,0 +1,10 @@
+$primary: #ab1595;
+$secondary: #141614;
+
+.content { 
+    margin: 0;
+    padding: 8px;
+    flex: 1;
+}
+
+@import '~bootstrap/scss/bootstrap.scss';
