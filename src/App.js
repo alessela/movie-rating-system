@@ -6,11 +6,9 @@ function App() {
   return (
     <div>
       <SidebarMenu />
-      <div style={{ display: 'flex', height: '100vh' }}>
       <div className='content'>
         <AppRouter />
       </div>
-    </div>
     </div>
   );
 }

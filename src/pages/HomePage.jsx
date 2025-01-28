@@ -1,11 +1,32 @@
-import { Button } from "react-bootstrap";
+import { useEffect, useState } from "react";
+import { Button, Container } from "react-bootstrap";
 
 const HomePage = () => {
+    const [movies, setMovies] = useState([])
+
+    const fetchMovies = async () => {
+        try {
+            await fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_TMDB_API_KEY}`)
+                .then(response => response.json())
+                .then(json => setMovies(json.results))
+        } catch(err) {
+            console.error(err)
+        }
+    }
+
+    useEffect(() => {
+        fetchMovies()
+    }, [])
+
     return (
-        <div>
-            <h1>Hello world!</h1>
-            <Button variant="primary">Click me!</Button>
-        </div>
+        <Container>
+            <h1>Recommended for You</h1>
+            {
+                movies.map((movie) => (
+                    <img src={`${process.env.REACT_APP_IMAGE_TMDB_URL}${movie.poster_path}`} />
+                ))
+            }
+        </Container>
     )
 }
 
