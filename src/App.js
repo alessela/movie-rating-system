@@ -1,11 +1,11 @@
 import './App.scss'
-import SidebarMenu from './components/SidebarMenu/SidebarMenu';
+import NavbarMenu from './components/NavbarMenu/NavbarMenu';
 import AppRouter from './router/AppRouter';
 
 function App() {
   return (
     <div>
-      <SidebarMenu />
+      <NavbarMenu />
       <div className='content'>
         <AppRouter />
       </div>
