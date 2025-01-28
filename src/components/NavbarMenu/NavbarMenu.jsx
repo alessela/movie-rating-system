@@ -1,7 +1,6 @@
 import { Nav, Navbar } from "react-bootstrap";
 
-
-const SidebarMenu = () => {
+const NavbarMenu = () => {
     return (
         <Navbar bg="primary" variant="dark" className="justify-content-center">
             <Nav>
@@ -13,4 +12,4 @@ const SidebarMenu = () => {
         )
 }
 
-export default SidebarMenu;
+export default NavbarMenu;

@@ -1,16 +1,18 @@
 import { useEffect, useState } from "react";
-import { Button, Container } from "react-bootstrap";
+import { Container } from "react-bootstrap";
+import Movie from "../models/Movie";
+import MovieGridItem from "../components/MovieGridItem/MovieGridItem";
 
 const HomePage = () => {
-    const [movies, setMovies] = useState([])
+    const [movies, setMovies] = useState(new Array(new Movie()))
 
-    const fetchMovies = async () => {
+    async function fetchMovies() {
         try {
             await fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_TMDB_API_KEY}`)
                 .then(response => response.json())
-                .then(json => setMovies(json.results))
-        } catch(err) {
-            console.error(err)
+                .then(json => setMovies(json.results));
+        } catch (err) {
+            console.error(err);
         }
     }
 
@@ -22,9 +24,12 @@ const HomePage = () => {
         <Container>
             <h1>Recommended for You</h1>
             {
-                movies.map((movie) => (
-                    <img src={`${process.env.REACT_APP_IMAGE_TMDB_URL}${movie.poster_path}`} />
-                ))
+                movies.map((movie, index) => <MovieGridItem key={index}
+                                                            id={movie.id}
+                                                            title={movie.title}
+                                                            poster_path={movie.poster_path}
+                                                            release_date={movie.release_date}
+                                                            genre_ids={movie.genre_ids}/>)
             }
         </Container>
     )
