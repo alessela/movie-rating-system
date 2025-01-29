@@ -1,4 +1,3 @@
-import { Button } from "react-bootstrap";
 import Movie from "../../models/Movie";
 import MovieGridItem from "../MovieGridItem/MovieGridItem";
 
@@ -9,8 +8,7 @@ function MovieGrid ({ movies }) {
 
 
     return (
-        <div className="pagination" style={{ display: 'flex'}}>
-            {/* <Button>Left</Button> */}
+        <div style={{ display: 'flex'}}>
             <div className="row column-gap-3" style={{ margin: 0 }}>
             {
                 movies.map((movie, index) => <MovieGridItem key={index}
@@ -21,7 +19,6 @@ function MovieGrid ({ movies }) {
                                                             genre_ids={movie.genre_ids}/>)
             }
             </div>
-            {/* <Button>Right</Button> */}
         </div>
     )
 }
