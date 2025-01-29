@@ -1,6 +1,6 @@
 
 import { Card } from "react-bootstrap";
-import Movie from "../../models/Movie";
+import Movie from "../../../models/Movie";
 /**
  * @param {Movie} movie 
  */

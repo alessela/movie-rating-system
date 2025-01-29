@@ -1,5 +1,5 @@
 import Movie from "../../models/Movie";
-import MovieGridItem from "../MovieGridItem/MovieGridItem";
+import MovieGridItem from "./MovieGridItem/MovieGridItem";
 
 /**
  * @param {{ movies: Movie[] }} movies 
