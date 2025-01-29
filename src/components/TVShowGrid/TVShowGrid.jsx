@@ -1,5 +1,5 @@
 import TVShow from "../../models/TVShow"
-import TVShowGridItem from "../TVShowGridItem/TVShowGridItem"
+import TVShowGridItem from "./TVShowGridItem/TVShowGridItem"
 
 /**
  * @param {{ shows: TVShow[] }} shows

@@ -1,5 +1,5 @@
 import { Card } from "react-bootstrap";
-import TVShow from "../../models/TVShow";
+import TVShow from "../../../models/TVShow";
 
 /**
  * @param {TVShow} show 
