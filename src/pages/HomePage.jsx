@@ -1,10 +1,8 @@
 import { useEffect, useState } from "react";
-import { Container } from "react-bootstrap";
-import Movie from "../models/Movie";
-import MovieGridItem from "../components/MovieGridItem/MovieGridItem";
+import MovieGrid from "../components/MovieGrid/MovieGrid";
 
 const HomePage = () => {
-    const [movies, setMovies] = useState(new Array(new Movie()))
+    const [movies, setMovies] = useState([])
 
     async function fetchMovies() {
         try {
@@ -21,17 +19,11 @@ const HomePage = () => {
     }, [])
 
     return (
-        <Container>
+        <div>
             <h1>Recommended for You</h1>
-            {
-                movies.map((movie, index) => <MovieGridItem key={index}
-                                                            id={movie.id}
-                                                            title={movie.title}
-                                                            poster_path={movie.poster_path}
-                                                            release_date={movie.release_date}
-                                                            genre_ids={movie.genre_ids}/>)
-            }
-        </Container>
+            <h3>Movies</h3>
+            <MovieGrid movies={movies} />
+        </div>
     )
 }
 

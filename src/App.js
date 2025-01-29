@@ -6,7 +6,11 @@ function App() {
   return (
     <div>
       <NavbarMenu />
-      <div className='content'>
+      <div style={{
+        margin: 0,
+        padding: 8,
+        height: 'calc(100vh - 56px)'
+      }}>
         <AppRouter />
       </div>
     </div>
