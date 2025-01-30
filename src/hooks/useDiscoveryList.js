@@ -3,18 +3,22 @@ import fetchRequest from "../utils/fetchRequest";
 
 const useDiscoveryList = (type) => {
     const [movies, setMovies] = useState([])
-    const [status, setStatus] = useState(false)
-    
+    const [loading, setLoading] = useState(true)
+    const [error, setError] = useState(null)
+
     useEffect(() => {
         fetchRequest('https://api.themoviedb.org/3/discover/' + type)
             .then(json => {
                 setMovies(json.results)
-                setStatus(true)
+                setLoading(false)
             })
-            .catch(() => setStatus(false))
+            .catch(error => {
+                setError(error)
+                setLoading(false)
+            })
     }, [])
     
-    return [movies, status]
+    return [movies, loading, error]
 }
 
 export default useDiscoveryList;

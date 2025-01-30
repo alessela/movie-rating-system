@@ -1,10 +1,11 @@
+import { Spinner } from "react-bootstrap";
 import MovieGrid from "../components/MovieGrid/MovieGrid"
 import TVShowGrid from "../components/TVShowGrid/TVShowGrid";
 import useDiscoveryList from "../hooks/useDiscoveryList";
 
 const HomePage = () => {
-    const [movies, moviesStatus] = useDiscoveryList('movie')
-    const [shows, showsStatus] = useDiscoveryList('tv')
+    const [movies, moviesLoading, moviesError] = useDiscoveryList('movie')
+    const [shows, showsLoading, showsError] = useDiscoveryList('tv')
 
     return (
         <div>
@@ -12,17 +13,20 @@ const HomePage = () => {
             <h3>Movies</h3>
             {/* <GenreSelect type="movie"/> */}
             {
-                moviesStatus ? <MovieGrid movies={movies}/> :
+                moviesLoading ? <Spinner /> : moviesError ? 
                 <p className="alert alert-danger">
-                    Error while fetching movies
-                </p>
+                    { moviesError.message }
+                </p> :
+                <MovieGrid movies={movies}/>
             }
             <h3>TV Shows</h3>
             {
-                showsStatus ? <TVShowGrid shows={shows}/> :
+                showsLoading ? <Spinner /> : showsError ? 
                 <p className="alert alert-danger">
-                    Error while fetching TV shows
-                </p>
+                    { showsError.message }
+                </p> :
+                <TVShowGrid shows={shows}/>
+                
             }
         </div>
     )
