@@ -1,9 +1,6 @@
-import Movie from "../../models/Movie";
 import MovieGridItem from "./MovieGridItem/MovieGridItem";
+import PropTypes from "prop-types"
 
-/**
- * @param {{ movies: Movie[] }} movies 
- */
 function MovieGrid ({ movies }) {
 
 
@@ -19,6 +16,10 @@ function MovieGrid ({ movies }) {
         }
         </div>
     )
+}
+
+MovieGrid.propTypes = {
+    movies: PropTypes.arrayOf(PropTypes.object)
 }
 
 export default MovieGrid;
