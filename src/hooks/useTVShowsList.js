@@ -16,7 +16,7 @@ const useTVShowsList = () => {
 
     useEffect(() => {
         fetchShows()
-    })
+    }, [])
 
     return [shows, status]
 }

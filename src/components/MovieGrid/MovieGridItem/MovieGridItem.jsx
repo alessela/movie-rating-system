@@ -1,14 +1,16 @@
 
 import { Card } from "react-bootstrap";
 import Movie from "../../../models/Movie";
+import './MovieGridItem.css'
+
 /**
  * @param {Movie} movie 
  */
 function MovieGridItem (movie) {
     return (
-        <Card style={{ width: '200px', padding: 0 }}>
+        <Card className="movie-grid-item">
             <img src={`${process.env.REACT_APP_IMAGE_TMDB_URL}${movie.poster_path}`} 
-                 width={200}/>
+                 width={'100%'}/>
             <h6 style={{margin: 0}}>{movie.title}</h6>
             <p style={{margin: 0, fontSize: 12}}>{movie.release_date}</p>
         </Card>

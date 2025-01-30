@@ -1,0 +1,15 @@
+.movie-grid-item {
+    padding: 0;
+}
+
+@media (min-width: 417px) {
+    .movie-grid-item {
+        min-width: 200px;
+    }
+}
+
+@media (max-width: 416px) {
+    .movie-grid-item {
+        min-width: calc(50%)
+    }
+}

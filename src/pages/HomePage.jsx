@@ -9,7 +9,7 @@ const HomePage = () => {
 
     return (
         <div>
-            <h1>Recommended for You</h1>
+            <h1>Discover</h1>
             <h3>Movies</h3>
             {
                 moviesStatus ? <MovieGrid movies={movies}/> :

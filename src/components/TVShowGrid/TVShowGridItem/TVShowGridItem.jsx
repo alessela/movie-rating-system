@@ -1,14 +1,15 @@
 import { Card } from "react-bootstrap";
 import TVShow from "../../../models/TVShow";
+import './TVShowGridItem.css'
 
 /**
  * @param {TVShow} show 
  */
 function TVShowGridItem (show) {
     return (
-        <Card style={{ width: '200px', padding: 0 }}>
+        <Card className="show-grid-item">
             <img src={`${process.env.REACT_APP_IMAGE_TMDB_URL}${show.poster_path}`} 
-                 width={200}/>
+                 width={'100%'}/>
             <h6 style={{margin: 0}}>{show.name}</h6>
             <p style={{margin: 0, fontSize: 12}}>{show.first_air_date}</p>
         </Card>

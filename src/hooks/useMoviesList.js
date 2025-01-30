@@ -16,7 +16,7 @@ const useMoviesList = () => {
 
     useEffect(() => {
         fetchMovies()
-    })
+    }, [])
 
     return [movies, status]
 }

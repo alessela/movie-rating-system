@@ -6,7 +6,7 @@ import TVShowGridItem from "./TVShowGridItem/TVShowGridItem"
  */
 function TVShowGrid({ shows}) {
     return (
-        <div className="row column-gap-3" style={{ margin: 0}}>
+        <div className="d-flex overflow-auto" style={{ margin: 0 }}>
             {
                 shows.map((show, index) => <TVShowGridItem key={index}
                                                            id={show.id}
