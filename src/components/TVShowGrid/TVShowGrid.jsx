@@ -7,7 +7,7 @@ import TVShow from "../../models/TVShow"
  */
 function TVShowGrid ({ shows }) {
     return (
-        <div className="d-flex overflow-auto" style={{ margin: 0 }}>
+        <div className="d-flex overflow-auto m-0">
             {
                 shows.map((show, index) => <TVShowGridItem key={index}
                                                            id={show.id}

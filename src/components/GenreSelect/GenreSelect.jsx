@@ -10,10 +10,10 @@ const GenreSelect = ({ type, handleSelectGenres }) => {
         <p className="alert alert-danger"> { error.message } </p> 
     ) :
     (
-        <div style={{ display: 'flex', margin: '8px 8px 16px 8px'}}>
-            <h6 style={{ marginRight: 8 }}>Genre(s):</h6>
-            <Row className="gap-2"
-                 style={{ margin: 0, maxHeight: 176, overflowY: 'auto' }}>
+        <div className="d-flex mt-2 mb-3">
+            <h6 className="me-2">Genre(s):</h6>
+            <Row className="gap-2 m-0 overflow-auto"
+                 style={{ maxHeight: 176 }}>
             {
                 genres.map(genre => <Button key={genre.id}
                                             className="w-auto"
@@ -31,7 +31,7 @@ const GenreSelect = ({ type, handleSelectGenres }) => {
                                     </Button>)
             }
             </Row>
-            <Button style={{ margin: 'auto'}}
+            <Button className="m-auto"
                     onClick={() => handleSelectGenres(selected)}>
                 <i className="bi bi-search"></i>
             </Button>

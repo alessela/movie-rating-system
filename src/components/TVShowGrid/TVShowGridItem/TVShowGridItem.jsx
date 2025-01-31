@@ -7,7 +7,7 @@ import './TVShowGridItem.css'
  */
 function TVShowGridItem (show) {
     return (
-        <Card className="show-grid-item">
+        <Card className="show-grid-item p-0">
             <img src={`${process.env.REACT_APP_IMAGE_TMDB_URL}${show.poster_path}`} 
                  width={'100%'}/>
             <h6 style={{margin: 0}}>{show.name}</h6>
