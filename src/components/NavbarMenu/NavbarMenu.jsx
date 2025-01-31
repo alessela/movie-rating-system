@@ -1,13 +1,14 @@
-import { Nav, Navbar } from "react-bootstrap";
+import { Container, Navbar } from "react-bootstrap";
+import SearchBar from "./SearchBar/SearchBar";
+import Sidebar from "../Sidebar/Sidebar";
 
 const NavbarMenu = () => {
     return (
-        <Navbar bg="primary" variant="dark" className="justify-content-center">
-            <Nav>
-                <Nav.Link href='/'>Discover</Nav.Link>
-                <Nav.Link>Recently viewed</Nav.Link>
-                <Nav.Link>Favorites</Nav.Link>
-            </Nav>
+        <Navbar bg="primary">
+            <Sidebar />
+            <Container className="justify-content-center">
+                <SearchBar />
+            </Container>
         </Navbar>
         )
 }
