@@ -7,7 +7,7 @@ import { Row } from "react-bootstrap"
  */
 function TVShowGrid ({ shows }) {
     return (
-        <div className="overflow-auto m-0" style={{ flexGrow: 1}}>
+        <div className="overflow-auto m-0 p-1" style={{ flexGrow: 1}}>
             <Row className="g-2">
             {
                 shows.map((show, index) => <TVShowGridItem key={index}

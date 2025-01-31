@@ -10,7 +10,7 @@ const GenreSelect = ({ type, handleSelectGenres }) => {
         <p className="alert alert-danger"> { error.message } </p> 
     ) :
     (
-        <div className="d-flex mt-2 mb-3">
+        <div className="d-flex mt-2 mb-2">
             <h6 className="m-auto me-2">Genre(s):</h6>
             <Row className="gap-2 m-0 overflow-auto"
                  style={{ maxHeight: 130 }}>

@@ -6,8 +6,10 @@ const useGenresList = (type) => {
     const [genres, setGenres] = useState([new Genre()].slice(0, 0))
     const [error, setError] = useState(null)
 
+    const url = `${process.env.REACT_APP_TMDB_API_URL}/genre/${type}/list`
+
     useEffect(() => {
-        fetchRequest(`https://api.themoviedb.org/3/genre/${type}/list`)
+        fetchRequest(url)
             .then(json => setGenres(json.genres)).catch(setError)
     }, [type])
 

@@ -13,11 +13,8 @@ const HomePage = () => {
     const [list, loading, error] = useDiscoverList(type, genres)
 
     return (
-        <BasePage>
-            <h1>Discover</h1>
+        <BasePage title="Discover">
             <MovieShowDropdown handleDisplayType={setType}/>
-
-            <h3>{ type === 'movie' ? 'Movies' : 'TV Shows'}</h3>
             <GenreSelect type={type} handleSelectGenres={setGenres}/>
             {
                 loading ? <Spinner /> : 

@@ -1,12 +1,12 @@
-import { useEffect, useState } from "react";
-import fetchRequest from "../utils/fetchRequest";
+import { useEffect, useState } from "react"
+import fetchRequest from "../utils/fetchRequest"
 
-const useDiscoverList = (type, genres) => {
+const useSearchList = (query, type) => {
     const [results, setResults] = useState([])
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState(null)
 
-    const url = `${process.env.REACT_APP_TMDB_API_URL}/discover/${type}?with_genres=${genres.join('|')}`
+    const url = `${process.env.REACT_APP_TMDB_API_URL}/search/${type}?query=${encodeURI(query)}`
 
     useEffect(() => {
         fetchRequest(url)
@@ -18,9 +18,9 @@ const useDiscoverList = (type, genres) => {
                 setError(error)
                 setLoading(false)
             })
-    }, [type, genres])
+    }, [query, type])
     
     return [results, loading, error]
 }
 
-export default useDiscoverList;
+export default useSearchList;
