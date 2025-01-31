@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { Spinner } from "react-bootstrap";
-import GenreSelect from '../components/GenreSelect/GenreSelect'
-import MovieGrid from '../components/MovieGrid/MovieGrid'
-import useDiscoverList from "../hooks/useDiscoverList";
-import TVShowGrid from "../components/TVShowGrid/TVShowGrid";
-import MovieShowDropdown from "../components/MovieShowDropdown/MovieShowDropdown";
+import GenreSelect from '../../components/GenreSelect/GenreSelect'
+import MovieGrid from '../../components/MovieGrid/MovieGrid'
+import useDiscoverList from "../../hooks/useDiscoverList";
+import TVShowGrid from "../../components/TVShowGrid/TVShowGrid";
+import MovieShowDropdown from "../../components/MovieShowDropdown/MovieShowDropdown";
+import BasePage from "../BasePage/BasePage";
 
 const HomePage = () => {
     const [type, setType] = useState('movie')
@@ -12,7 +13,7 @@ const HomePage = () => {
     const [list, loading, error] = useDiscoverList(type, genres)
 
     return (
-        <div>
+        <BasePage>
             <h1>Discover</h1>
             <MovieShowDropdown handleDisplayType={setType}/>
 
@@ -23,7 +24,7 @@ const HomePage = () => {
                 error ? <p className="alert alert-danger"> { error.message } </p> :
                 type === 'movie' ? <MovieGrid movies={list}/> : <TVShowGrid shows={list}/>
             }
-        </div>
+        </BasePage>
     )
 }
 

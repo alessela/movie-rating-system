@@ -13,7 +13,7 @@ const GenreSelect = ({ type, handleSelectGenres }) => {
         <div className="d-flex mt-2 mb-3">
             <h6 className="me-2">Genre(s):</h6>
             <Row className="gap-2 m-0 overflow-auto"
-                 style={{ maxHeight: 176 }}>
+                 style={{ maxHeight: 130 }}>
             {
                 genres.map(genre => <Button key={genre.id}
                                             className="w-auto"

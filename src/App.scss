@@ -1,24 +1,2 @@
-.content {
-    height: calc(100vh - 56px)
-}
-
-@media (min-width: 1256px) {
-    .content {
-        padding: 8px 128px 
-    }
-}
-
-@media (min-width: 1016px) and (max-width: 1255px) {
-    .content {
-        padding: 8px calc(50vw - 500px) 
-    }
-}
-
-@media (max-width: 1015px) {
-    .content {
-        padding: 8px
-    }
-}
-
 @import '~bootstrap/scss/bootstrap.scss';
 @import "bootstrap-icons/font/bootstrap-icons";
