@@ -7,7 +7,7 @@ const useDiscoverList = (type, genres) => {
     const [error, setError] = useState(null)
 
     useEffect(() => {
-        fetchRequest(`https://api.themoviedb.org/3/discover/${type}?with_genres=${genres}`)
+        fetchRequest(`https://api.themoviedb.org/3/discover/${type}?with_genres=${genres.join('|')}`)
             .then(json => {
                 setMovies(json.results)
                 setLoading(false)
