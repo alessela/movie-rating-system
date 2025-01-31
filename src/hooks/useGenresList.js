@@ -9,7 +9,7 @@ const useGenresList = (type) => {
     useEffect(() => {
         fetchRequest(`https://api.themoviedb.org/3/genre/${type}/list`)
             .then(json => setGenres(json.genres)).catch(setError)
-    }, [])
+    }, [type])
 
     return [genres, error]
 }

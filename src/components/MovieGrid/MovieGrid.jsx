@@ -8,7 +8,7 @@ function MovieGrid ({ movies }) {
 
 
     return (
-        <div className="d-flex overflow-auto" style={{ margin: '0 0 16px 0' }}>
+        <div className="d-flex overflow-auto" style={{ margin: 0 }}>
         {
             movies.map((movie, index) => <MovieGridItem key={index}
                                                         id={movie.id}
