@@ -1,7 +1,11 @@
 import TVShowGridItem from "./TVShowGridItem/TVShowGridItem"
 import PropTypes from "prop-types"
+import TVShow from "../../models/TVShow"
 
-const TVShowGrid = ({ shows }) => {
+/**
+ * @param {{ shows: TVShow[] }} shows 
+ */
+function TVShowGrid ({ shows }) {
     return (
         <div className="d-flex overflow-auto" style={{ margin: 0 }}>
             {

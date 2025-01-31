@@ -1,11 +1,14 @@
+import Movie from "../../models/Movie";
 import MovieGridItem from "./MovieGridItem/MovieGridItem";
-import PropTypes from "prop-types"
 
+/**
+ * @param {{ movies: Movie[]}} movies 
+ */
 function MovieGrid ({ movies }) {
 
 
     return (
-        <div className="d-flex overflow-auto" style={{ margin: 0 }}>
+        <div className="d-flex overflow-auto" style={{ margin: '0 0 16px 0' }}>
         {
             movies.map((movie, index) => <MovieGridItem key={index}
                                                         id={movie.id}
@@ -16,10 +19,6 @@ function MovieGrid ({ movies }) {
         }
         </div>
     )
-}
-
-MovieGrid.propTypes = {
-    movies: PropTypes.arrayOf(PropTypes.object)
 }
 
 export default MovieGrid;

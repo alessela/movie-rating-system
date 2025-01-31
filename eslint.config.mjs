@@ -24,6 +24,7 @@ export default [
       "import/no-unresolved": "error",
       "no-unused-vars": "off",
       "react/jsx-key": "off",
+      "react/prop-types": "off"
     },
     settings: {
       "import/resolver": {
