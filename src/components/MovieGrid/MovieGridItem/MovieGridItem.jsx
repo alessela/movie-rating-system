@@ -11,8 +11,8 @@ function MovieGridItem (movie) {
         <Card className="movie-grid-item p-0">
             <img src={`${process.env.REACT_APP_IMAGE_TMDB_URL}${movie.poster_path}`} 
                  width={'100%'}/>
-            <h6 style={{margin: 0}}>{movie.title}</h6>
-            <p style={{margin: 0, fontSize: 12}}>{movie.release_date}</p>
+            <h6 className="m-0">{movie.title}</h6>
+            <p className="m-0" style={{ fontSize: 12}}>{movie.release_date}</p>
         </Card>
     )
 }
