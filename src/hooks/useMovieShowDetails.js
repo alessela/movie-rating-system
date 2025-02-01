@@ -1,14 +1,12 @@
 import { useCallback, useEffect, useState } from "react"
 import fetchRequest from "../utils/fetchRequest"
-import Movie from "../models/Movie"
 
-const useMovieDetails = (id) => {
-    const [result, setResult] = useState(new Movie())
-
+const useMovieShowDetails = (id, type) => {
+    const [result, setResult] = useState(null)
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState(null)
 
-    const url = `${process.env.REACT_APP_TMDB_API_URL}/movie/${id}`
+    const url = `${process.env.REACT_APP_TMDB_API_URL}/${type}/${id}`
 
     const fetchMovie = useCallback(async () => {
         await fetchRequest(url).then(setResult).catch(setError)
@@ -22,4 +20,4 @@ const useMovieDetails = (id) => {
     return [result, loading, error]
 }
 
-export default useMovieDetails;
+export default useMovieShowDetails;

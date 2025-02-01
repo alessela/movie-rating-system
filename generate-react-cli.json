@@ -9,10 +9,8 @@
       "withTest": false,
       "withStory": false,
       "withLazy": false
-    }
-  },
-  "page": {
-    "default": {
+    },
+    "page": {
       "path": "src/pages",
       "withStyle": false,
       "withTest": false,

@@ -1,7 +1,7 @@
 import { Col, Row, Table } from "react-bootstrap";
 
 const MovieTopLevelDetails = ({ 
-    title, poster_path, original_title, release_date,
+    poster_path, original_title, release_date,
     genres, vote_average, vote_count, overview
 }) => {
     const image_url = poster_path == null ? 'logo192.png' :
@@ -10,7 +10,7 @@ const MovieTopLevelDetails = ({
     return (
         <Row className="g-2">
             <Col xs={12} sm={6} md={4} lg={3}>
-                <img src={image_url} alt={title} width={'100%'}/>
+                <img src={image_url} alt={poster_path} width={'100%'}/>
             </Col>
             <Col>
                 <Table bordered>
