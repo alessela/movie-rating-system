@@ -1,4 +1,4 @@
-const fetchRequest = (url) => {
+const fetchRequest = async (url) => {
     const options = {
         method: 'GET',
         headers: {
@@ -7,7 +7,14 @@ const fetchRequest = (url) => {
         }
     }
 
-    return fetch(url, options).then(response => response.json())
+    return await fetch(url, options).then(async response => {
+            const json = await response.json()
+            
+            if (!response.ok) {
+                throw new Error(json.status_message)
+            }
+            return json
+        })
 }
 
 export default fetchRequest;
