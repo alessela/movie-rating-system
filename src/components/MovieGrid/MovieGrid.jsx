@@ -1,9 +1,8 @@
-import Movie from "../../models/Movie";
 import MovieGridItem from "./MovieGridItem/MovieGridItem";
 import Row from 'react-bootstrap/Row'
 
 /**
- * @param {{ movies: Movie[]}} movies 
+ * @param {{ movies: Array<{ id: number, title: string, poster_path: string, release_date: string }>}} movies 
  */
 function MovieGrid ({ movies }) {
     return (

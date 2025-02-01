@@ -1,9 +1,8 @@
 import TVShowGridItem from "./TVShowGridItem/TVShowGridItem"
-import TVShow from "../../models/TVShow"
 import { Row } from "react-bootstrap"
 
 /**
- * @param {{ shows: TVShow[] }} shows 
+ * @param {{ shows: Array<{ id: number, name: string, poster_path: string, first_air_date: string }> }} shows 
  */
 function TVShowGrid ({ shows }) {
     return (
