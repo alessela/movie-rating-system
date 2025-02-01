@@ -1,4 +1,5 @@
 import { Col, Row, Table } from "react-bootstrap";
+import RatingSystem from "../RatingSystem/RatingSystem";
 
 const MovieTopLevelDetails = ({ 
     poster_path, original_title, release_date,
@@ -40,6 +41,8 @@ const MovieTopLevelDetails = ({
 
                 <h4>Overview</h4>
                 <p>{overview}</p>
+                
+                <RatingSystem />
             </Col>
         </Row>
     )
