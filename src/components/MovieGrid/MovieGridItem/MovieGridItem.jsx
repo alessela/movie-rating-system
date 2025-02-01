@@ -1,22 +1,19 @@
-
 import { Card, Col } from "react-bootstrap";
-import Movie from "../../../models/Movie";
+import { Link } from "react-router-dom";
 
-/**
- * @param {Movie} movie 
- */
-function MovieGridItem (movie) {
-    const image_url = movie.poster_path == null ? 'logo192.png' :
-        `${process.env.REACT_APP_IMAGE_TMDB_URL}${movie.poster_path}`
+const MovieGridItem = ({ id, title, poster_path, release_date}) => {
+    const image_url = poster_path == null ? 'logo192.png' :
+        `${process.env.REACT_APP_IMAGE_TMDB_URL}${poster_path}`
 
     return (
         <Col xs={6} sm={4} md={3} lg={2}>
-            <Card>
-                <img src={image_url} 
-                    width={'100%'}/>
-                <h6 className="m-0">{movie.title}</h6>
-                <p className="m-0" style={{ fontSize: 12}}>{movie.release_date}</p>
-            </Card>
+            <Link to={`/movie/${id}`}>
+                <Card>
+                    <img src={image_url} width={'100%'}/>
+                    <h6 className="m-0">{title}</h6>
+                    <p className="m-0" style={{ fontSize: 12}}>{release_date}</p>
+                </Card>
+            </Link>
         </Col>
         
     )

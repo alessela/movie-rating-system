@@ -1,4 +1,4 @@
-import { useParams, useSearchParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import BasePage from "../BasePage/BasePage";
 import { useState } from "react";
 import useSearchList from "../../hooks/useSearchList";
@@ -15,7 +15,7 @@ const SearchResults = () => {
     const [list, loading, error] = useSearchList(query, type)
 
     return (
-        <BasePage title={`Search results for "${query}"`}>
+        <BasePage title={`Search results for "${query}"`} screenFit={true}>
             <MovieShowDropdown handleDisplayType={setType}/>
             {
                 loading ? <Spinner /> : 

@@ -14,7 +14,8 @@ const SearchBar = () => {
     return (
         <Form onSubmit={handleSubmit}>
             <InputGroup>
-                <Form.Control className="rounded-pill"
+                <Form.Control id="queryInput"
+                              className="rounded-pill"
                               htmlSize={40}
                               type="text"
                               placeholder="Search movie or TV show"

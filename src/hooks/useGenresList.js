@@ -8,9 +8,14 @@ const useGenresList = (type) => {
 
     const url = `${process.env.REACT_APP_TMDB_API_URL}/genre/${type}/list`
 
+    const fetchGenres = async () => {
+        await fetchRequest(url)
+            .then(json => setGenres(json.genres))
+            .catch(setError)
+    }
+
     useEffect(() => {
-        fetchRequest(url)
-            .then(json => setGenres(json.genres)).catch(setError)
+        fetchGenres()
     }, [type])
 
     return [genres, error]

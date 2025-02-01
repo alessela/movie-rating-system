@@ -5,7 +5,7 @@ const MovieShowDropdown = ({ handleDisplayType }) => {
     const [label, setLabel] = useState('Movies')
 
     return (
-        <Dropdown>
+        <Dropdown className="m-1">
             <Dropdown.Toggle variant="success">{ label }</Dropdown.Toggle>
             <Dropdown.Menu>
                 <Dropdown.Item onClick={() => {

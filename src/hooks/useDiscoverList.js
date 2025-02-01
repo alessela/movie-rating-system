@@ -8,16 +8,15 @@ const useDiscoverList = (type, genres) => {
 
     const url = `${process.env.REACT_APP_TMDB_API_URL}/discover/${type}?with_genres=${genres.join('|')}`
 
+    const fetchList = async () => {
+        await fetchRequest(url)
+            .then(json => setResults(json.results))
+            .catch(setError)
+            .finally(() => setLoading(false))
+    }
+
     useEffect(() => {
-        fetchRequest(url)
-            .then(json => {
-                setResults(json.results)
-                setLoading(false)
-            })
-            .catch(error => {
-                setError(error)
-                setLoading(false)
-            })
+        fetchList()
     }, [type, genres])
     
     return [results, loading, error]
