@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import fetchRequest from "../utils/fetchRequest";
 
 const useDiscoverList = (type, genres) => {
@@ -8,16 +8,16 @@ const useDiscoverList = (type, genres) => {
 
     const url = `${process.env.REACT_APP_TMDB_API_URL}/discover/${type}?with_genres=${genres.join('|')}`
 
-    const fetchList = async () => {
+    const fetchList = useCallback(async () => {
         await fetchRequest(url)
             .then(json => setResults(json.results))
             .catch(setError)
             .finally(() => setLoading(false))
-    }
+    }, [url])
 
     useEffect(() => {
         fetchList()
-    }, [type, genres])
+    }, [fetchList])
     
     return [results, loading, error]
 }

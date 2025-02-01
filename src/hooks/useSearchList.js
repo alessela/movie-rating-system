@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useCallback, useEffect, useState } from "react"
 import fetchRequest from "../utils/fetchRequest"
 
 const useSearchList = (query, type) => {
@@ -8,17 +8,16 @@ const useSearchList = (query, type) => {
 
     const url = `${process.env.REACT_APP_TMDB_API_URL}/search/${type}?query=${encodeURI(query)}`
 
+    const fetchList = useCallback(async () => {
+        await fetchRequest(url)
+            .then(json => setResults(json.results))
+            .catch(setError)
+            .finally(() => setLoading(false))
+    }, [url])
+
     useEffect(() => {
-        fetchRequest(url)
-            .then(json => {
-                setResults(json.results)
-                setLoading(false)
-            })
-            .catch(error => {
-                setError(error)
-                setLoading(false)
-            })
-    }, [query, type])
+        fetchList()
+    }, [fetchList])
     
     return [results, loading, error]
 }
