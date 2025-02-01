@@ -8,7 +8,7 @@ const useSearchList = (query, type) => {
 
     const url = `${process.env.REACT_APP_TMDB_API_URL}/search/${type}?query=${encodeURI(query)}`
 
-    const fetchList = useCallback(async () => {
+    const fetchSearchList = useCallback(async () => {
         await fetchRequest(url)
             .then(json => setResults(json.results))
             .catch(setError)
@@ -16,8 +16,8 @@ const useSearchList = (query, type) => {
     }, [url])
 
     useEffect(() => {
-        fetchList()
-    }, [fetchList])
+        fetchSearchList()
+    }, [fetchSearchList])
     
     return [results, loading, error]
 }
