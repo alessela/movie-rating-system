@@ -11,8 +11,7 @@ function TVShowGridItem (show) {
     return (
         <Col xs={6} sm={4} md={3} lg={2}>
             <Card>
-                <img src={image_url} 
-                    width={'100%'}/>
+                <img src={image_url} alt={show.name} width={'100%'}/>
                 <h6 className="m-0">{show.name}</h6>
                 <p className="m-0" style={{ fontSize: 12}}>{show.first_air_date}</p>
             </Card>

@@ -9,7 +9,7 @@ const MovieGridItem = ({ id, title, poster_path, release_date}) => {
         <Col xs={6} sm={4} md={3} lg={2}>
             <Link to={`/movie/${id}`}>
                 <Card>
-                    <img src={image_url} width={'100%'}/>
+                    <img src={image_url} alt={title} width={'100%'}/>
                     <h6 className="m-0">{title}</h6>
                     <p className="m-0" style={{ fontSize: 12}}>{release_date}</p>
                 </Card>
