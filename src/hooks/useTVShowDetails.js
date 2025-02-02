@@ -1,23 +1,24 @@
 import { useCallback, useEffect, useState } from "react"
 import fetchRequest from "../utils/fetchRequest"
+import { TVShow } from "../models/TVShow"
 
-const useMovieShowDetails = (id, type) => {
-    const [result, setResult] = useState(null)
+const useTVShowDetails = (id) => {
+    const [show, setResult] = useState(TVShow)
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState(null)
 
-    const url = `${process.env.REACT_APP_TMDB_API_URL}/${type}/${id}`
+    const url = `${process.env.REACT_APP_TMDB_API_URL}/tv/${id}`
 
-    const fetchMovie = useCallback(async () => {
+    const fetchTVShow = useCallback(async () => {
         await fetchRequest(url).then(setResult).catch(setError)
             .finally(() => setLoading(false))
     }, [url])
 
     useEffect(() => {
-        fetchMovie()
-    }, [fetchMovie])
+        fetchTVShow()
+    }, [fetchTVShow])
 
-    return [result, loading, error]
+    return [show, loading, error]
 }
 
-export default useMovieShowDetails;
+export default useTVShowDetails;

@@ -1,10 +1,9 @@
+import { MovieGridData } from "../../models/Movie";
 import MovieGridItem from "./MovieGridItem/MovieGridItem";
 import Row from 'react-bootstrap/Row'
 
-/**
- * @param {{ movies: Array<{ id: number, title: string, poster_path: string, release_date: string }>}} movies 
- */
-function MovieGrid ({ movies }) {
+function MovieGrid ({ movies = [MovieGridData].slice(0, 0) }) {
+
     return (
         <div className="overflow-auto mt-1 pl-1 pe-1" style={{ flexGrow: 1}}>
             <Row className="g-2">

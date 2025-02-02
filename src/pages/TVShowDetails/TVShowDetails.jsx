@@ -1,15 +1,12 @@
-import React from 'react';
 import { useParams } from 'react-router-dom';
-import useMovieShowDetails from '../../hooks/useMovieShowDetails';
-import TVShow from '../../models/TVShow'
 import BasePage from '../BasePage/BasePage';
 import { Spinner } from 'react-bootstrap';
 import TVShowTopLevelDetails from '../../components/TVShowTopLevelDetails/TVShowTopLevelDetails';
+import useTVShowDetails from '../../hooks/useTVShowDetails';
 
 const TVShowDetails = () => {
   const { id } = useParams()
-  const [result, loading, error] = useMovieShowDetails(id, 'tv')
-  const show = Object.assign(new TVShow(), result)
+  const [show, loading, error] = useTVShowDetails(id)
 
   return (
     <BasePage title={show.name}>

@@ -4,7 +4,7 @@ import User from "../models/User";
 
 const useCurrentUser = () => {
     const [error, setError] = useState(null)
-    const [user, setUser] = useState(new User())
+    const [user, setUser] = useState(User)
 
     const url = `${process.env.REACT_APP_TMDB_API_URL}/account/1?session_id=${localStorage.getItem('tmdb_session_id')}`
 
@@ -16,7 +16,7 @@ const useCurrentUser = () => {
         fetchUser()
     }, [fetchUser])
 
-    return [Object.assign(new User(), user), error]
+    return [user, error]
 }
 
 export default useCurrentUser;

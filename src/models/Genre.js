@@ -1,8 +1,6 @@
-class Genre {
-    constructor(id, name) {
-        this.id = id
-        this.name = name
-    }
+const Genre = {
+    id: 0,
+    name: ''
 }
 
 export default Genre;

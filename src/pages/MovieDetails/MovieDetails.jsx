@@ -1,14 +1,12 @@
 import { useParams } from "react-router-dom";
 import BasePage from "../BasePage/BasePage";
-import useMovieShowDetails from "../../hooks/useMovieShowDetails";
+import useMovieDetails from "../../hooks/useMovieDetails";
 import { Spinner} from "react-bootstrap";
-import Movie from "../../models/Movie";
 import MovieTopLevelDetails from "../../components/MovieTopLevelDetails/MovieTopLevelDetails";
 
 const MovieDetails = () => {
     const { id } = useParams()
-    const [result, loading, error] = useMovieShowDetails(id, 'movie')
-    const movie = Object.assign(new Movie(), result)
+    const [movie, loading, error] = useMovieDetails(id, 'movie')
 
     return (
         <BasePage title={movie.title}>
