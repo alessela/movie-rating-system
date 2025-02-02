@@ -1,6 +1,7 @@
 import Genre from "./Genre"
 
 export const TVShow = {
+    id: 0,
     name: '',
     poster_path: '',
     first_air_date: '',

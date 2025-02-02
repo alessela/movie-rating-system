@@ -13,7 +13,8 @@ const MovieDetails = () => {
             {
                 loading ? <Spinner className="m-1"/> :
                 error ? <p className="alert alert-danger"> { error.message } </p> :
-                <MovieTopLevelDetails poster_path={movie.poster_path}
+                <MovieTopLevelDetails id={movie.id}
+                                      poster_path={movie.poster_path}
                                       original_title={movie.original_title}
                                       release_date={movie.release_date}
                                       genres={movie.genres

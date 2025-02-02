@@ -40,7 +40,7 @@ const MovieTopLevelDetails = (movie = Movie) => {
                 <h4>Overview</h4>
                 <p>{ movie.overview}</p>
                 
-                <RatingSystem />
+                <RatingSystem type="movie" id={movie.id}/>
             </Col>
         </Row>
     )

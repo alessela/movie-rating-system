@@ -1,6 +1,7 @@
 import Genre from './Genre'
 
 export const Movie = {
+    id: 0,
     title: '',
     poster_path: '',
     release_date: '',

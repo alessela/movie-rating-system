@@ -13,7 +13,8 @@ const TVShowDetails = () => {
       {
         loading ? <Spinner className="m-1"/> :
         error ? <p className="alert alert-danger"> { error.message } </p> :
-        <TVShowTopLevelDetails poster_path={show.poster_path}
+        <TVShowTopLevelDetails id={show.id}
+                               poster_path={show.poster_path}
                                original_name={show.original_name}
                                first_air_date={show.first_air_date}
                                last_air_date={show.last_air_date}

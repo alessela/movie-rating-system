@@ -1,9 +1,16 @@
 import { useEffect, useState } from "react";
+import useAddRating from "../../hooks/useAddRating";
+import { Spinner } from "react-bootstrap";
 
-const RatingSystem = () => {
-  const [hover, setHover] = useState(0)
-  const [rating, setRating] = useState(0)
+const RatingSystem = ({type, id}) => {
   const [stars, setStars] = useState([])
+  const { rating, 
+    hover, 
+    setHover, 
+    loading, 
+    success, 
+    status,
+    addRating } = useAddRating(type, id)
 
   useEffect(() => {
     let hoverStars = []
@@ -12,7 +19,7 @@ const RatingSystem = () => {
       hoverStars.push(
         <i className={`bi bi-star${i < Math.max(hover, rating) ? '-fill' : ''} fs-1 m-1 text-warning`}
            key={i}
-         onClick={() => {setRating(i + 1)}}
+         onClick={() => {addRating(i + 1)}}
          onMouseEnter={() => setHover(i + 1)}
          onMouseLeave={() => setHover(0)}
          ></i>
@@ -24,9 +31,15 @@ const RatingSystem = () => {
   }, [hover, rating])
 
   return (
-    <div className="d-flex">
-      { stars }
-    </div>
+    <>
+      <div className="d-flex">
+        { stars }
+      </div>
+      {
+        loading ? <Spinner className="m-1"/> : 
+        <p className={ success ? "" : "alert alert-danger"}> { status } </p> 
+      }
+    </>
   )
 };
 

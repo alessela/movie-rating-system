@@ -1,5 +1,6 @@
 import { Col, Row, Table } from "react-bootstrap";
 import { TVShowGridData } from "../../models/TVShow";
+import RatingSystem from "../RatingSystem/RatingSystem";
 
 const TVShowTopLevelDetails = (show = TVShowGridData) => {
   const image_url = show.poster_path == null ? '/logo192.png' :
@@ -42,6 +43,8 @@ const TVShowTopLevelDetails = (show = TVShowGridData) => {
   
                   <h4>Overview</h4>
                   <p>{ show.overview }</p>
+
+                  <RatingSystem type="tv" id={show.id}/>
               </Col>
           </Row>
       )
