@@ -1,18 +1,21 @@
-import React, { useState } from 'react';
-import { Alert, Button } from 'react-bootstrap';
-import loginWithTMDb from '../../auth/loginWithTMDb';
+import { useState } from "react";
+import { Alert, Button } from "react-bootstrap";
+import logoutFromTMDb from "../../../auth/logoutFromTMDb";
+import { useNavigate } from "react-router-dom";
 
-const LoginButton = () => {
+const LogoutButton = () => {
   const [error, setError] = useState(null)
   const [alert, setAlert] = useState(false)
+  const navigate = useNavigate()
 
   return (
     <>
       <Button variant='primary'
-              className='m-auto'
-              onClick={() => loginWithTMDb()
+              className='me-2'
+              onClick={() => logoutFromTMDb()
+                .then(() => navigate('/login'))
                 .catch(err => { setError(err); setAlert(true) })}>
-          Login
+          Logout
       </Button>
       <Alert show={alert} variant='danger' dismissible
              onClose={() => setAlert(false)}
@@ -27,4 +30,4 @@ const LoginButton = () => {
   )
 };
 
-export default LoginButton;
+export default LogoutButton;

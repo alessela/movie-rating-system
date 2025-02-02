@@ -8,7 +8,7 @@ const TVShowGridItem = (show = TVShowGridData) => {
 
     return (
         <Col xs={6} sm={4} md={3} lg={2}>
-            <Link to={`tv/${show.id}`}>
+            <Link to={`/tv/${show.id}`}>
                 <Card>
                     <img src={image_url} alt={show.name} width={'100%'}/>
                     <h6 className="m-0">{show.name}</h6>
