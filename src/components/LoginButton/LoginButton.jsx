@@ -9,6 +9,7 @@ const LoginButton = () => {
   return (
     <>
       <Button variant='secondary'
+              className='me-2'
               onClick={() => loginWithTMDb()
                 .catch(err => { setError(err); setAlert(true) })}>
           Login
