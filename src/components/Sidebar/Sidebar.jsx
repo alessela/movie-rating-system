@@ -19,7 +19,7 @@ const Sidebar = () => {
                 </Offcanvas.Header>
                 <Offcanvas.Body>
                     <Nav>
-                        <Nav.Link href='/'>Discover</Nav.Link>
+                        <Nav.Link href='/movie'>Movies</Nav.Link>
                         <Nav.Link>Recently viewed</Nav.Link>
                         <Nav.Link>Favorites</Nav.Link>
                     </Nav>

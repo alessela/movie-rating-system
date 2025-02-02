@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { MovieGridData } from "../../../models/Movie";
 
 const MovieGridItem = (movie = MovieGridData) => {
-    const image_url = movie.poster_path == null ? 'logo192.png' :
+    const image_url = movie.poster_path == null ? '/logo192.png' :
         `${process.env.REACT_APP_IMAGE_TMDB_URL}${movie.poster_path}`
 
     return (

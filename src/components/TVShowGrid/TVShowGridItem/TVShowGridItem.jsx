@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { TVShowGridData } from "../../../models/TVShow";
 
 const TVShowGridItem = (show = TVShowGridData) => {
-    const image_url = show.poster_path == null ? 'logo192.png' :
+    const image_url = show.poster_path == null ? '/logo192.png' :
         `${process.env.REACT_APP_IMAGE_TMDB_URL}${show.poster_path}`
 
     return (

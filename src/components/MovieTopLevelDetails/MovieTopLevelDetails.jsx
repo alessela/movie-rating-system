@@ -3,7 +3,7 @@ import RatingSystem from "../RatingSystem/RatingSystem";
 import { Movie } from "../../models/Movie";
 
 const MovieTopLevelDetails = (movie = Movie) => {
-    const image_url = movie.poster_path == null ? 'logo192.png' :
+    const image_url = movie.poster_path == null ? '/logo192.png' :
         `${process.env.REACT_APP_IMAGE_TMDB_URL}${movie.poster_path}`
 
     return (

@@ -2,6 +2,7 @@ import { useCallback, useEffect, useState } from "react"
 import fetchRequest from "../utils/fetchRequest"
 
 const useSearchList = (query, type) => {
+
     const [results, setResults] = useState([])
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState(null)

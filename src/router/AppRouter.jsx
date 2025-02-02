@@ -9,9 +9,11 @@ const AppRouter = () => {
     return (
         <BrowserRouter>
             <Routes>
-                <Route path="/" element={<HomePage />}/>
-                <Route path="/search" element={<SearchResults />} />
+                <Route path="/movie" element={<HomePage type="movie"/>}/>
+                <Route path="/movie/search" element={<SearchResults type="movie"/>} />
                 <Route path="/movie/:id" element={<MovieDetailsPage />} />
+                <Route path="/tv" element={<HomePage type="tv"/>}/>
+                <Route path="/tv/search" element={<SearchResults type="tv"/>} />
                 <Route path="/tv/:id" element={<TVShowDetails />} />
                 <Route path="/auth" element={<AuthRedirect />} />
             </Routes>
