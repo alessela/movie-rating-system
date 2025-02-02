@@ -2,6 +2,7 @@ import { Container, Navbar } from 'react-bootstrap';
 import './BasePage.css'
 import Sidebar from '../../components/Sidebar/Sidebar';
 import SearchBar from '../../components/SearchBar/SearchBar';
+import LoginButton from '../../components/LoginButton/LoginButton';
 
 const BasePage = ({ title, screenFit, styles, children }) => (
     <>
@@ -9,6 +10,7 @@ const BasePage = ({ title, screenFit, styles, children }) => (
             <Sidebar />
             <Container className="justify-content-center">
                 <SearchBar />
+                <LoginButton />
             </Container>
         </Navbar>
         <div className="d-flex flex-column content"

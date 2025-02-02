@@ -1,10 +1,12 @@
-const fetchRequest = async (url) => {
+const fetchRequest = async (url, method='GET', body=null) => {
     const options = {
-        method: 'GET',
+        method: method,
         headers: {
             accept: 'application/json',
+            'content-type': 'application/json',
             Authorization: `Bearer ${process.env.REACT_APP_TMDB_API_TOKEN}`
-        }
+        },
+        body: body
     }
 
     return await fetch(url, options).then(async response => {
