@@ -1,70 +1,80 @@
-# Getting Started with Create React App
+# Movie Rating System
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Development environment setup
 
-## Available Scripts
+### Step 1 Install necessary tools
+Tools to be installed: Visual Studio Code, Git, NodeJS (latest versions recommended)
 
-In the project directory, you can run:
+### Step 2 Clone Git Repository
+Open any location, then right click -> More options -> Git Bash here, it opens the Git Bash
+Clone the repository by typing: https://github.com/alessela/movie-rating-system.git
+and then press Enter.
+It will extract the project into a directory named movie-rating-system.
 
-### `npm start`
+### Step 3 Open the extracted folder
+Open Visual Studio Code, and then click File -> Open Folder and select the extracted folder and this will open the project.
 
-Runs the app in the development mode.\
+### Step 4 `npm install`
+In the terminal from the bottom of the IDE, type npm install for installing all libraries and dependencies necessary for running the project
+
+![image](https://github.com/user-attachments/assets/fd1a257b-bcca-4fc2-bfa8-a8458ae246f8)
+
+### Step 5 Login to TMDb
+You can login in the application using you TMDb account, so you need to sign up on TMDb (https://www.themoviedb.org/) if you haven't done yet.
+
+### Step 6 Obtaining API Read token access
+For loggin in into the application, you will need to open an API Read Token Access.
+For this, click on your profile on the top-right, and then Settings -> API -> Create tab -> Developer.
+Then you need to scroll down to accept the terms of use, and later you will need to complete a form and click "Submit".
+
+And now, the API configuration page will look like this:
+
+![image](https://github.com/user-attachments/assets/626ca557-f29e-4dcb-89e4-07f86ec30507)
+
+You can see both an API key and an API Read Access Token necessary for using the application.
+
+### Step 7 Set access token for the project
+
+Copy the read access token generated earlier, then go back to the project in VS Code and paste the token in the .env file just like this:
+
+![image](https://github.com/user-attachments/assets/8298836b-dc91-415e-9eb0-1e83ae9cabbf)
+
+### Step 8 `npm start`
+Now go back to the terminal and run the app in the development mode using the command above.
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+![image](https://github.com/user-attachments/assets/0a170b55-7963-45fb-b0f1-2a21c4e6654e)
 
-### `npm test`
+The page will reload when you make changes.
+You may see some infos, warnings and errors in the console.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# Step 9 Login in the application.
+You have just to click on the login button from the middle of the screen and you'll be redirected to the TMDb website, where you need to approve the 3rd Party Authentication Request.
 
-### `npm run build`
+![image](https://github.com/user-attachments/assets/74b3e45b-458b-4752-b041-c49702e36362)
+After the approval, you will be redirected to the main page of the app.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Testing scenarios
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Movie grid display
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![image](https://github.com/user-attachments/assets/5e5be8ad-fe08-4c31-aff6-fb74cae365b2)
 
-### `npm run eject`
+### Filtering by genre functionality
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+![image](https://github.com/user-attachments/assets/4d025dd0-5e70-4acf-9c73-089ba85cb794)
+![image](https://github.com/user-attachments/assets/7004306a-ff44-405c-82d7-49aa72a2c343)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Adding movies or TV series as favorites
+![image](https://github.com/user-attachments/assets/e944f3a2-1fd3-4185-a7ef-de40d3935989)
+![image](https://github.com/user-attachments/assets/53d6f265-b51d-40cc-b836-99721f8e4be1)
+![image](https://github.com/user-attachments/assets/a75db45e-3798-44bf-8911-1771c456342b)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Rating a movie or TV series
+![image](https://github.com/user-attachments/assets/b25f9e2a-8fa2-412e-a0db-fe4cdcfd9ac1)
+![image](https://github.com/user-attachments/assets/386a0108-06a7-4ef9-9ae9-8bbbb0d499d4)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Viewing comments for movies or TV shows
+![image](https://github.com/user-attachments/assets/645ebe2e-b4ce-40f2-ab41-41a0dcd37a4c)
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+I couldn't the leaving comments functionality because TMDb API doesn't provide endpoints for leaving comments and reviews, but at least it provides endpoints for retrieving the comments of a movie or TV show
