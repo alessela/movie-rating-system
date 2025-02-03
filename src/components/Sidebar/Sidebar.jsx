@@ -1,7 +1,9 @@
 import { useState } from "react";
-import { Image, Offcanvas } from "react-bootstrap";
+import { Button, Image, Offcanvas } from "react-bootstrap";
 import useCurrentUser from "../../hooks/useCurrentUser";
-import LogoutButton from "./LogoutButton/LogoutButton";
+import logoutFromTMDb from "../../auth/logoutFromTMDb";
+import { Navigate } from "react-router-dom";
+import { useAlert } from "../../context/AlertContext";
 
 const Sidebar = () => {
     const [user, error] = useCurrentUser();
@@ -9,6 +11,7 @@ const Sidebar = () => {
     const avatar_url = avatar_path == null ? '/logo192.png' : 
         `${process.env.REACT_APP_IMAGE_TMDB_URL}${avatar_path}`
     const [show, setShow] = useState(false)
+    const showAlert = useAlert()
 
     return (
         <>
@@ -32,7 +35,13 @@ const Sidebar = () => {
                         </div>
                     </Offcanvas.Header>
                     <Offcanvas.Body>
-                        <LogoutButton />
+                    <Button variant='primary'
+                            className='me-2'
+                            onClick={() => logoutFromTMDb()
+                                .then(() => Navigate('/login'))
+                                .catch(err => showAlert(err.message, 'danger') )}>
+                        Logout
+                    </Button>
                     </Offcanvas.Body>
                 </Offcanvas>
             </>

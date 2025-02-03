@@ -1,17 +1,18 @@
 import { useCallback, useEffect, useState } from "react";
 import fetchRequest from "../utils/fetchRequest";
+import { useAlert } from "../context/AlertContext";
 
 const useDiscoverList = (type, genres) => {
     const [results, setResults] = useState([])
     const [loading, setLoading] = useState(true)
-    const [error, setError] = useState(null)
+    const showAlert = useAlert()
 
     const url = `${process.env.REACT_APP_TMDB_API_URL}/discover/${type}?with_genres=${genres.join('|')}`
 
     const fetchList = useCallback(async () => {
         await fetchRequest(url)
             .then(json => setResults(json.results))
-            .catch(setError)
+            .catch(err => showAlert(err.message, 'danger'))
             .finally(() => setLoading(false))
     }, [url])
 
@@ -19,7 +20,7 @@ const useDiscoverList = (type, genres) => {
         fetchList()
     }, [fetchList])
     
-    return [results, loading, error]
+    return [results, loading]
 }
 
 export default useDiscoverList;

@@ -1,17 +1,12 @@
 import { Button, Row } from "react-bootstrap"
 import useGenresList from "../../hooks/useGenresList"
 import { useState } from "react"
-import { useNavigate } from "react-router-dom"
 
-const GenreSelect = ({ type, selectedGenres = [] }) => {
-    const [genres, error] = useGenresList(type)
-    const [selected, setSelected] = useState(selectedGenres)
-    const navigate = useNavigate()
+const GenreSelect = ({ type, handleSelectGenres }) => {
+    const genres = useGenresList(type)
+    const [selected, setSelected] = useState([])
 
-    return error ? (
-        <p className="alert alert-danger"> { error.message } </p> 
-    ) :
-    (
+    return (
         <div className="d-flex mt-2 mb-2">
             <h6 className="m-auto me-2">Genre(s):</h6>
             <Row className="gap-2 m-0 overflow-auto"
@@ -34,13 +29,7 @@ const GenreSelect = ({ type, selectedGenres = [] }) => {
             }
             </Row>
             <Button className="m-auto"
-                    onClick={() => {
-                        let url = `/${type}`
-                        if (selected.length > 0) {
-                            url += `?genres=${selected.join('|')}`
-                        }
-                        navigate(url)
-                    }}>
+                    onClick={() => handleSelectGenres(selected)}>
                 <i className="bi bi-search"></i>
             </Button>
             

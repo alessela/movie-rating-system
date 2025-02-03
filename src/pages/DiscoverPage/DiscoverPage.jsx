@@ -4,20 +4,17 @@ import MovieGrid from '../../components/MovieGrid/MovieGrid'
 import TVShowGrid from "../../components/TVShowGrid/TVShowGrid";
 import BasePage from "../BasePage/BasePage";
 import useDiscoverList from "../../hooks/useDiscoverList";
-import { useSearchParams } from "react-router-dom";
+import { useState } from "react";
 
 const DiscoverPage = ({ type }) => {
-    const [ searchParams ] = useSearchParams()
-    const genreParams = searchParams.get('genres')
-    const genres = genreParams ? genreParams.split('|') : []
-    const [list, loading, error] = useDiscoverList(type, genres)
+    const [genres, setGenres] = useState([])
+    const [list, loading] = useDiscoverList(type, genres)
 
     return (
         <BasePage title={`Discover ${type === 'movie' ? 'movies' : 'TV shows'}`} screenFit={true}>
-            <GenreSelect type={type} selectedGenres={genres}/>
+            <GenreSelect type={type} handleSelectGenres={setGenres}/>
             {
                 loading ? <Spinner className="m-1"/> : 
-                error ? <p className="alert alert-danger"> { error.message } </p> :
                 type === 'movie' ? <MovieGrid movies={list}/> : <TVShowGrid shows={list}/>
             }
         </BasePage>

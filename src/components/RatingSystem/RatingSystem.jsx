@@ -7,9 +7,7 @@ const RatingSystem = ({type, id}) => {
   const { rating, 
     hover, 
     setHover, 
-    loading, 
-    success, 
-    status,
+    loading,
     addRating } = useAddRating(type, id)
 
   useEffect(() => {
@@ -35,10 +33,7 @@ const RatingSystem = ({type, id}) => {
       <div className="d-flex">
         { stars }
       </div>
-      {
-        loading ? <Spinner className="m-1"/> : 
-        <p className={ success ? "" : "alert alert-danger"}> { status } </p> 
-      }
+      { loading && <Spinner className="m-1"/> }
     </>
   )
 };

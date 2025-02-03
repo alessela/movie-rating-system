@@ -1,12 +1,12 @@
 import { useState } from "react"
 import fetchRequest from "../utils/fetchRequest"
+import { useAlert } from "../context/AlertContext"
 
 const useAddRating = (type, id) => {
     const [rating, setRating] = useState(0)
     const [hover, setHover] = useState(0)
     const [loading, setLoading] = useState(false)
-    const [success, setSuccess] = useState(false)
-    const [status, setStatus] = useState(null)
+    const showAlert = useAlert()
     
     const session_id = localStorage.getItem('tmdb_session_id')
     const url = `${process.env.REACT_APP_TMDB_API_URL}/${type}/${id}/rating?session_id=${session_id}`
@@ -18,20 +18,21 @@ const useAddRating = (type, id) => {
         await fetchRequest(url, 'POST', body)
             .then(json => {
                 if (json.success) {
-                    setSuccess(true)
                     setRating(selectedRating)
+                    showAlert(json.status_message, 'success')
                 }
-                setStatus(json.status_message)
+                else {
+                    showAlert(json.status_message, 'danger')
+                }
             })
-            .catch(setStatus).finally(() => setLoading(false))
+            .catch(err => showAlert(err.message, 'danger'))
+            .finally(() => setLoading(false))
     }
 
     return { rating,
         hover, 
         setHover, 
-        loading, 
-        success, 
-        status, 
+        loading,  
         addRating  }
 }
 
