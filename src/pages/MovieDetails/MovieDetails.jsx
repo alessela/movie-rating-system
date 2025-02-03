@@ -6,13 +6,13 @@ import MovieTopLevelDetails from "../../components/MovieTopLevelDetails/MovieTop
 
 const MovieDetails = () => {
     const { id } = useParams()
-    const {movie, loading, error} = useMovieDetails(id, 'movie')
+    const {movie, loading} = useMovieDetails(id)
 
     return (
-        <BasePage title={movie.title}>
+        <BasePage title={movie && movie.title}>
             {
                 loading ? <Spinner className="m-1"/> :
-                error ? <p className="alert alert-danger"> { error.message } </p> :
+                movie &&
                 <MovieTopLevelDetails id={movie.id}
                                       poster_path={movie.poster_path}
                                       original_title={movie.original_title}

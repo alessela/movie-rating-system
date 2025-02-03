@@ -6,13 +6,13 @@ import useTVShowDetails from '../../hooks/useTVShowDetails';
 
 const TVShowDetails = () => {
   const { id } = useParams()
-  const {show, loading, error} = useTVShowDetails(id)
+  const {show, loading} = useTVShowDetails(id)
 
   return (
-    <BasePage title={show.name}>
+    <BasePage title={show && show.name}>
       {
         loading ? <Spinner className="m-1"/> :
-        error ? <p className="alert alert-danger"> { error.message } </p> :
+        show &&
         <TVShowTopLevelDetails id={show.id}
                                poster_path={show.poster_path}
                                original_name={show.original_name}

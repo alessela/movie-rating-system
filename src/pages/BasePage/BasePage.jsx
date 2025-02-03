@@ -20,12 +20,13 @@ const BasePage = ({ title, screenFit, styles, children }) => {
                         <NavDropdown.Item href={'/movie'}>Discover</NavDropdown.Item>
                         <NavDropdown.Item href={'/movie/search'}>Search</NavDropdown.Item>
                         <NavDropdown.Item href={'/movie/favorites'}>Favorites</NavDropdown.Item>
+                        <NavDropdown.Item href={'/movie/rated'}>Rated</NavDropdown.Item>
                     </NavDropdown>
                     <NavDropdown title='TV shows' className="text-white">
                         <NavDropdown.Item href={'/tv'}>Discover</NavDropdown.Item>
                         <NavDropdown.Item href={'/tv/search'}>Search</NavDropdown.Item>
                         <NavDropdown.Item href={'/tv/favorites'}>Favorites</NavDropdown.Item>
-                        <NavDropdown.Item>Favorites</NavDropdown.Item>
+                        <NavDropdown.Item href={'/tv/rated'}>Rated</NavDropdown.Item>
                     </NavDropdown>
                 </div>
                 <Sidebar />

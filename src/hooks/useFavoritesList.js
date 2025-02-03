@@ -16,7 +16,7 @@ const useFavoritesList = (type) => {
             .then(json => setFavorites(json.results))
             .catch(err => showAlert(err.message, 'danger'))
             .finally(() => setLoading(false))
-    }, [url, showAlert])
+    }, [url])
 
     useEffect(() => {
         fetchFavorites()

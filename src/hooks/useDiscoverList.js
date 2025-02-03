@@ -14,7 +14,7 @@ const useDiscoverList = (type, genres) => {
             .then(json => setResults(json.results))
             .catch(err => showAlert(err.message, 'danger'))
             .finally(() => setLoading(false))
-    }, [url, showAlert])
+    }, [url])
 
     useEffect(() => {
         fetchList()

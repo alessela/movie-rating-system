@@ -23,7 +23,7 @@ const useFavorite = (type, id) => {
             })
             .catch(err => showAlert(err.message, 'danger'))
             .finally(() => setLoading(false))
-    }, [favoritesUrl, id, showAlert])
+    }, [favoritesUrl, id])
 
     useEffect(() => {
         fetchFavoriteStatus()
