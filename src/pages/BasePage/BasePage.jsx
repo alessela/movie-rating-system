@@ -1,15 +1,13 @@
 import { Navbar, NavDropdown } from 'react-bootstrap';
 import './BasePage.css'
 import Sidebar from '../../components/Sidebar/Sidebar';
-import { useNavigate } from 'react-router-dom';
 
 const BasePage = ({ title, styles, children }) => {
     const session_id = localStorage.getItem('tmdb_session_id')
-    const navigate = useNavigate()
 
-    if (session_id == null) {
-        navigate('/login')
-    }
+    // if (session_id == null) {
+    //     window.location.href = '/login'
+    // }
 
     return (
         <>

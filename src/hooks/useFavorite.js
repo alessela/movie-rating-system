@@ -43,7 +43,10 @@ const useFavorite = (type, id) => {
 
         await fetchRequest(toggleUrl, 'POST', body)
             .then(json => {
-                if (!json.success) {
+                if (json.success) {
+                    showAlert(json.status_message, 'success')
+                }
+                else {
                     setFavorite(fav => !fav)
                     showAlert(json.status_message, 'danger')
                 }

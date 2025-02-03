@@ -2,8 +2,8 @@ import { useState } from "react";
 import { Button, Image, Offcanvas } from "react-bootstrap";
 import useCurrentUser from "../../hooks/useCurrentUser";
 import logoutFromTMDb from "../../auth/logoutFromTMDb";
-import { Navigate } from "react-router-dom";
 import { useAlert } from "../../context/AlertContext";
+import { useNavigate } from "react-router-dom";
 
 const Sidebar = () => {
     const [user, error] = useCurrentUser();
@@ -12,6 +12,7 @@ const Sidebar = () => {
         `${process.env.REACT_APP_IMAGE_TMDB_URL}${avatar_path}`
     const [show, setShow] = useState(false)
     const showAlert = useAlert()
+    const navigate = useNavigate()
 
     return (
         <>
@@ -38,7 +39,7 @@ const Sidebar = () => {
                     <Button variant='primary'
                             className='me-2'
                             onClick={() => logoutFromTMDb()
-                                .then(() => Navigate('/login'))
+                                .then(() => window.location.href = '/login')
                                 .catch(err => showAlert(err.message, 'danger') )}>
                         Logout
                     </Button>
