@@ -15,7 +15,7 @@ const RatingSystem = ({type, id}) => {
 
     for (let i = 0; i < 10; i++) {
       hoverStars.push(
-        <i className={`bi bi-star${i < Math.max(hover, rating) ? '-fill' : ''} fs-1 m-1 text-warning`}
+        <i className={`bi bi-star${i < Math.max(hover, rating) ? '-fill' : ''} fs-2 text-warning`}
            key={i}
          onClick={() => {addRating(i + 1)}}
          onMouseEnter={() => setHover(i + 1)}

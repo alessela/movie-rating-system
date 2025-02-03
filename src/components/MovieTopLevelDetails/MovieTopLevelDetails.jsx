@@ -1,6 +1,7 @@
 import { Col, Row, Table } from "react-bootstrap";
 import RatingSystem from "../RatingSystem/RatingSystem";
 import { Movie } from "../../models/Movie";
+import FavoriteButton from "../FavoriteButton/FavoriteButton";
 
 const MovieTopLevelDetails = (movie = Movie) => {
     const image_url = movie.poster_path == null ? '/logo192.png' :
@@ -37,10 +38,11 @@ const MovieTopLevelDetails = (movie = Movie) => {
                     </tbody>
                 </Table>
 
+                <FavoriteButton type="movie" id={movie.id} />
+                <RatingSystem type="movie" id={movie.id}/>
+
                 <h4>Overview</h4>
                 <p>{ movie.overview}</p>
-                
-                <RatingSystem type="movie" id={movie.id}/>
             </Col>
         </Row>
     )

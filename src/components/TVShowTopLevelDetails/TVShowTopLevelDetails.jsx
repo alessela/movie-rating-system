@@ -1,6 +1,7 @@
 import { Col, Row, Table } from "react-bootstrap";
 import { TVShowGridData } from "../../models/TVShow";
 import RatingSystem from "../RatingSystem/RatingSystem";
+import FavoriteButton from "../FavoriteButton/FavoriteButton";
 
 const TVShowTopLevelDetails = (show = TVShowGridData) => {
   const image_url = show.poster_path == null ? '/logo192.png' :
@@ -40,11 +41,12 @@ const TVShowTopLevelDetails = (show = TVShowGridData) => {
                           </tr>
                       </tbody>
                   </Table>
+
+                  <FavoriteButton type="tv" id={show.id} />
+                  <RatingSystem type="tv" id={show.id}/>
   
                   <h4>Overview</h4>
                   <p>{ show.overview }</p>
-
-                  <RatingSystem type="tv" id={show.id}/>
               </Col>
           </Row>
       )
