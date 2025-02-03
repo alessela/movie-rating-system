@@ -7,7 +7,7 @@ const ReviewCard = ( review = Review ) => {
     `${process.env.REACT_APP_IMAGE_TMDB_URL}${avatar}`
 
   return (
-  <div className="d-flex p-2 border rounded">
+  <div className="d-flex p-2 mt-2 mb-2 border rounded">
     <Image src={avatar_path} alt={review.author} width={50} height={50} roundedCircle/>
     <div className="ms-2">
       <h6 className="m-0">{review.author}</h6>

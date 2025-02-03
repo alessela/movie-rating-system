@@ -5,7 +5,7 @@ import Row from 'react-bootstrap/Row'
 function MovieGrid ({ movies = [MovieGridData].slice(0, 0) }) {
 
     return (
-        <div className="overflow-auto mt-1 pl-1 pe-1" style={{ flexGrow: 1}}>
+        <div className="overflow-auto mt-1 pl-1 pe-1" style={{ flexGrow: 1, maxHeight: 630}}>
             <Row className="g-2">
             {
                 movies.map((movie, index) => <MovieGridItem key={index}

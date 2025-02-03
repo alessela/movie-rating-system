@@ -4,6 +4,7 @@ import useMovieDetails from "../../hooks/useMovieDetails";
 import { Spinner} from "react-bootstrap";
 import MovieTopLevelDetails from "../../components/MovieTopLevelDetails/MovieTopLevelDetails";
 import ReviewsSection from "../../components/ReviewsSection/ReviewsSection";
+import Recommendations from "../../components/Recommendations/Recommendations";
 
 const MovieDetails = () => {
     const { id } = useParams()
@@ -31,6 +32,7 @@ const MovieDetails = () => {
                         overview={movie.overview}
                         />
                     <ReviewsSection type='movie' id={movie.id}/>
+                    <Recommendations type='movie' id={movie.id}/>
                     </>
                     )
                 
