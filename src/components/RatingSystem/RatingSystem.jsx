@@ -4,6 +4,7 @@ import { Spinner } from "react-bootstrap";
 
 const RatingSystem = ({type, id}) => {
   const [stars, setStars] = useState([])
+
   const { rating, 
     hover, 
     setHover, 

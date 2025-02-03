@@ -1,14 +1,38 @@
-import { useState } from "react"
+import { useCallback, useEffect, useState } from "react"
 import fetchRequest from "../utils/fetchRequest"
 import { useAlert } from "../context/AlertContext"
 
 const useAddRating = (type, id) => {
-    const [rating, setRating] = useState(0)
+    const [rating, setRating] = useState(false)
     const [hover, setHover] = useState(0)
     const [loading, setLoading] = useState(false)
-    const showAlert = useAlert()
-    
     const session_id = localStorage.getItem('tmdb_session_id')
+    const showAlert = useAlert()
+
+    const _type = type === 'movie' ? 'movies' : type
+    const ratedUrl = `${process.env.REACT_APP_TMDB_API_URL}/account/1/rated/${_type}?session_id=${session_id}`
+
+    const fetchRating = useCallback(async () => {
+        setLoading(true)
+
+        await fetchRequest(ratedUrl)
+            .then(json => {
+                const ratedList = json.results
+                if (ratedList) {
+                    if (ratedList.some((x) => x.id === id)) {
+                        const found = ratedList.filter((x) => x.id === id)[0]
+                        setRating(found.rating)
+                    }
+                }
+            })
+            .catch(err => showAlert(err.message, 'danger'))
+            .finally(() => setLoading(false))
+    }, [ratedUrl, id])
+
+    useEffect(() => {
+        fetchRating()
+    }, [fetchRating])
+    
     const url = `${process.env.REACT_APP_TMDB_API_URL}/${type}/${id}/rating?session_id=${session_id}`
 
     const addRating = async (selectedRating) => {
