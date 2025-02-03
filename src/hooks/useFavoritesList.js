@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from "react"
 import { useAlert } from "../context/AlertContext"
 import fetchRequest from "../utils/fetchRequest"
 
-const useFavoritesList = (type) => {
+const useRating = (type) => {
     const [favorites, setFavorites] = useState([])
     const [loading, setLoading] = useState(true)
     const showAlert = useAlert()
@@ -25,4 +25,4 @@ const useFavoritesList = (type) => {
     return [favorites, loading]
 }
 
-export default useFavoritesList;
+export default useRating;

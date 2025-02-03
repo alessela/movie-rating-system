@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from "react"
 import fetchRequest from "../utils/fetchRequest"
 import { useAlert } from "../context/AlertContext"
 
-const useAddRating = (type, id) => {
+const useFetchRating = (type, id) => {
     const [rating, setRating] = useState(false)
     const [hover, setHover] = useState(0)
     const [loading, setLoading] = useState(false)
@@ -53,11 +53,29 @@ const useAddRating = (type, id) => {
             .finally(() => setLoading(false))
     }
 
+    const deleteRating = async () => {
+        setLoading(true)
+
+        await fetchRequest(url, 'DELETE')
+            .then(json => {
+                if (json.success) {
+                    setRating(0)
+                    showAlert(json.status_message, 'success')
+                }
+                else {
+                    showAlert(json.status_message, 'danger')
+                }
+            })
+            .catch(err => showAlert(err.message, 'danger'))
+            .finally(() => setLoading(false))
+    }
+
     return { rating,
         hover, 
         setHover, 
         loading,  
-        addRating  }
+        addRating, 
+        deleteRating }
 }
 
-export default useAddRating;
+export default useFetchRating;

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import useAddRating from "../../hooks/useAddRating";
+import useFetchRating from "../../hooks/useRating";
 import { Spinner } from "react-bootstrap";
 
 const RatingSystem = ({type, id}) => {
@@ -9,7 +9,8 @@ const RatingSystem = ({type, id}) => {
     hover, 
     setHover, 
     loading,
-    addRating } = useAddRating(type, id)
+    addRating,
+    deleteRating } = useFetchRating(type, id)
 
   useEffect(() => {
     let hoverStars = []
@@ -34,6 +35,16 @@ const RatingSystem = ({type, id}) => {
       <div className="d-flex">
         { stars }
       </div>
+      {
+        rating > 0 ?
+          <div className="d-flex">
+          <i className="bi bi-x-lg fs-2"
+            onClick={deleteRating}>
+            Clear rating
+          </i>
+        </div> : <></>
+      }
+      
       { loading && <Spinner className="m-1"/> }
     </>
   )
