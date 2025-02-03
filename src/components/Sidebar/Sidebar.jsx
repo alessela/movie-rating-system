@@ -17,7 +17,7 @@ const Sidebar = () => {
     return (
         <>
         {
-            error ? <div>{error}</div> : 
+            error ? <div>{error.message}</div> : 
             <>
                 <Image src={avatar_url} width={38} height={38}
                     roundedCircle
@@ -39,8 +39,8 @@ const Sidebar = () => {
                     <Button variant='primary'
                             className='me-2'
                             onClick={() => logoutFromTMDb()
-                                .then(() => window.location.href = '/login')
-                                .catch(err => showAlert(err.message, 'danger') )}>
+                            .then(() => navigate('/login'))
+                            .catch(err => showAlert(err.message, 'danger') )}>
                         Logout
                     </Button>
                     </Offcanvas.Body>

@@ -10,7 +10,7 @@ const SearchResults = ({ type }) => {
     const [ searchParams ] = useSearchParams()
     const query = searchParams.get('query') ?? ''
 
-    const [list, loading, error] = useSearchList(query, type)
+    const [list, loading] = useSearchList(query, type)
 
     return (
         <BasePage title={`Search ${type === 'movie' ? 'movies' : 'TV shows'}`}
@@ -20,7 +20,6 @@ const SearchResults = ({ type }) => {
             {
                 query === '' ? <></> :
                 loading ? <Spinner /> : 
-                error ? <p className="alert alert-danger"> { error.message } </p> :
                 type === 'movie' ? <MovieGrid movies={list}/> : <TVShowGrid shows={list}/>
             }
         </BasePage>
