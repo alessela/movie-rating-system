@@ -8,7 +8,7 @@ const FavoritesPage = ({ type }) => {
   const [favorites, loading] = useFavoritesList(type)
 
   return (
-    <BasePage title={`Favorite ${type === 'movie' ? 'movies' : 'TV shows'}`} screenFit={true}>
+    <BasePage title={`Favorite ${type === 'movie' ? 'movies' : 'TV shows'}`}>
       {
           loading ? <Spinner className="m-1"/> : 
           type === 'movie' ? <MovieGrid movies={favorites}/> : <TVShowGrid shows={favorites}/>

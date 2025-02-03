@@ -3,7 +3,7 @@ import './BasePage.css'
 import Sidebar from '../../components/Sidebar/Sidebar';
 import { useNavigate } from 'react-router-dom';
 
-const BasePage = ({ title, screenFit, styles, children }) => {
+const BasePage = ({ title, styles, children }) => {
     const session_id = localStorage.getItem('tmdb_session_id')
     const navigate = useNavigate()
 
@@ -31,9 +31,8 @@ const BasePage = ({ title, screenFit, styles, children }) => {
                 </div>
                 <Sidebar />
             </Navbar>
-            <div className="d-flex flex-column content"
-                 style={{ height: screenFit ? 'calc(100vh - 54px)' : 'auto', 
-                        ...styles}}>
+            <div className="d-flex flex-column content overflow-auto"
+                 style={{ height: 'calc(100vh - 54px)', ...styles }}>
                 <h1>{title}</h1>
                 { children }
             </div>

@@ -11,7 +11,7 @@ const DiscoverPage = ({ type }) => {
     const [list, loading] = useDiscoverList(type, genres)
 
     return (
-        <BasePage title={`Discover ${type === 'movie' ? 'movies' : 'TV shows'}`} screenFit={true}>
+        <BasePage title={`Discover ${type === 'movie' ? 'movies' : 'TV shows'}`}>
             <GenreSelect type={type} handleSelectGenres={setGenres}/>
             {
                 loading ? <Spinner className="m-1"/> : 

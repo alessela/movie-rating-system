@@ -16,10 +16,6 @@ const TVShowTopLevelDetails = (show = TVShowGridData) => {
                   <Table bordered>
                       <tbody>
                           <tr>
-                              <th>Original name</th>
-                              <td>{show.original_name}</td>
-                          </tr>
-                          <tr>
                               <th>First air date</th>
                               <td>{show.first_air_date}</td>
                           </tr>

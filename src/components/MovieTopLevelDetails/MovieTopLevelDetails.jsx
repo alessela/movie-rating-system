@@ -16,10 +16,6 @@ const MovieTopLevelDetails = (movie = Movie) => {
                 <Table bordered>
                     <tbody>
                         <tr>
-                            <th>Original title</th>
-                            <td>{movie.original_title}</td>
-                        </tr>
-                        <tr>
                             <th>Release date</th>
                             <td>{movie.release_date}</td>
                         </tr>

@@ -3,19 +3,25 @@ import BasePage from '../BasePage/BasePage';
 import { Spinner } from 'react-bootstrap';
 import TVShowTopLevelDetails from '../../components/TVShowTopLevelDetails/TVShowTopLevelDetails';
 import useTVShowDetails from '../../hooks/useTVShowDetails';
+import ReviewsSection from '../../components/ReviewsSection/ReviewsSection';
 
 const TVShowDetails = () => {
   const { id } = useParams()
   const {show, loading} = useTVShowDetails(id)
 
+  let title = show ? show.name : ''
+    if (show && show.original_name !== show.name) {
+        title += ` (${show.original_name})`
+    }
+
   return (
-    <BasePage title={show && show.name}>
+    <BasePage title={title}>
       {
         loading ? <Spinner className="m-1"/> :
         show &&
-        <TVShowTopLevelDetails id={show.id}
+        [
+          <TVShowTopLevelDetails id={show.id}
                                poster_path={show.poster_path}
-                               original_name={show.original_name}
                                first_air_date={show.first_air_date}
                                last_air_date={show.last_air_date}
                                genres={show.genres
@@ -24,7 +30,9 @@ const TVShowDetails = () => {
                                 vote_average={show.vote_average}
                                 vote_count={show.vote_count}
                                 overview={show.overview}
-                               />
+                               />,
+          <ReviewsSection type="tv" id={show.id}/>
+        ]
       }
     </BasePage>
   )

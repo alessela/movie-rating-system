@@ -13,7 +13,8 @@ const SearchResults = ({ type }) => {
     const [list, loading, error] = useSearchList(query, type)
 
     return (
-        <BasePage title={`Search ${type === 'movie' ? 'movies' : 'TV shows'}`} screenFit={true}>
+        <BasePage title={`Search ${type === 'movie' ? 'movies' : 'TV shows'}`}
+                  styles={{ overflow: 'auto' }}>
             <SearchBar type={type}/>
             { query !== ''? <h3>Search results</h3> : <></> }
             {
