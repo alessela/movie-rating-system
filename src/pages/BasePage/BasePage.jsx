@@ -14,16 +14,17 @@ const BasePage = ({ title, screenFit, styles, children }) => {
     return (
         <>
             <Navbar bg="primary" className="d-flex justify-content-between ps-1 pe-1">
-                <img src="/logo192.png" width={38} />
+                <img src="/logo192.png" width={38} alt="logo" />
                 <div className='d-flex column-gap-3'>
                     <NavDropdown title='Movies' className="text-white">
                         <NavDropdown.Item href={'/movie'}>Discover</NavDropdown.Item>
                         <NavDropdown.Item href={'/movie/search'}>Search</NavDropdown.Item>
-                        <NavDropdown.Item>Favorites</NavDropdown.Item>
+                        <NavDropdown.Item href={'/movie/favorites'}>Favorites</NavDropdown.Item>
                     </NavDropdown>
                     <NavDropdown title='TV shows' className="text-white">
                         <NavDropdown.Item href={'/tv'}>Discover</NavDropdown.Item>
                         <NavDropdown.Item href={'/tv/search'}>Search</NavDropdown.Item>
+                        <NavDropdown.Item href={'/tv/favorites'}>Favorites</NavDropdown.Item>
                         <NavDropdown.Item>Favorites</NavDropdown.Item>
                     </NavDropdown>
                 </div>

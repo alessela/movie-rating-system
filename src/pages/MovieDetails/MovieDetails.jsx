@@ -6,7 +6,7 @@ import MovieTopLevelDetails from "../../components/MovieTopLevelDetails/MovieTop
 
 const MovieDetails = () => {
     const { id } = useParams()
-    const [movie, loading, error] = useMovieDetails(id, 'movie')
+    const {movie, loading, error} = useMovieDetails(id, 'movie')
 
     return (
         <BasePage title={movie.title}>

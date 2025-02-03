@@ -6,7 +6,7 @@ import useTVShowDetails from '../../hooks/useTVShowDetails';
 
 const TVShowDetails = () => {
   const { id } = useParams()
-  const [show, loading, error] = useTVShowDetails(id)
+  const {show, loading, error} = useTVShowDetails(id)
 
   return (
     <BasePage title={show.name}>

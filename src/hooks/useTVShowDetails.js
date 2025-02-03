@@ -18,7 +18,7 @@ const useTVShowDetails = (id) => {
         fetchTVShow()
     }, [fetchTVShow])
 
-    return [show, loading, error]
+    return {show, loading, error}
 }
 
 export default useTVShowDetails;

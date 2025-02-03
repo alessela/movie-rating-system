@@ -6,6 +6,7 @@ import TVShowDetails from "../pages/TVShowDetails/TVShowDetails";
 import AuthRedirect from "../pages/AuthRedirect/AuthRedirect";
 import LoginPage from "../pages/LoginPage/LoginPage";
 import HomePage from "../pages/HomePage/HomePage";
+import FavoritesPage from "../pages/FavoritesPage/FavoritesPage";
 
 const AppRouter = () => {
     return (
@@ -14,11 +15,13 @@ const AppRouter = () => {
                 <Route path="/" element={<HomePage />} />
                 <Route path="/login" element={<LoginPage />}/>
                 <Route path="/movie" element={<DiscoverPage type="movie"/>}/>
+                <Route path="/movie/favorites" element={<FavoritesPage type="movie" />} />
                 <Route path="/movie/search" element={<SearchResults type="movie"/>} />
-                <Route path="/movie/:id" element={<MovieDetailsPage />} />
+                <Route path="/movie/:id" element={<MovieDetailsPage type="movie" />} />
                 <Route path="/tv" element={<DiscoverPage type="tv"/>}/>
+                <Route path="/tv/favorites" element={<FavoritesPage type="tv" />} />
                 <Route path="/tv/search" element={<SearchResults type="tv"/>} />
-                <Route path="/tv/:id" element={<TVShowDetails />} />
+                <Route path="/tv/:id" element={<TVShowDetails type="movie" />} />
                 <Route path="/auth" element={<AuthRedirect />} />
             </Routes>
         </BrowserRouter>

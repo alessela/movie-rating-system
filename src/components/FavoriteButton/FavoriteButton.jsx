@@ -1,7 +1,7 @@
 import { Spinner } from "react-bootstrap";
 import useFavorite from "../../hooks/useFavorite";
 
-const FavoriteButton = ({type, id}) => {
+const FavoriteButton = ({type, id}) => { 
   const { favorite, toggleFavorite, loading } = useFavorite(type, id)
 
   return (

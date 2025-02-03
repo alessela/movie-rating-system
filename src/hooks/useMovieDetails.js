@@ -18,7 +18,7 @@ const useMovieDetails = (id) => {
         fetchMovie()
     }, [fetchMovie])
 
-    return [movie, loading, error]
+    return {movie, loading, error}
 }
 
 export default useMovieDetails;
