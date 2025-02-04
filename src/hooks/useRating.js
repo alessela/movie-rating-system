@@ -3,7 +3,7 @@ import fetchRequest from "../utils/fetchRequest"
 import { useAlert } from "../context/AlertContext"
 
 const useFetchRating = (type, id) => {
-    const [rating, setRating] = useState(false)
+    const [rating, setRating] = useState(0)
     const [hover, setHover] = useState(0)
     const [loading, setLoading] = useState(false)
     const session_id = localStorage.getItem('tmdb_session_id')
@@ -22,6 +22,9 @@ const useFetchRating = (type, id) => {
                     if (ratedList.some((x) => x.id === id)) {
                         const found = ratedList.filter((x) => x.id === id)[0]
                         setRating(found.rating)
+                    }
+                    else {
+                        setRating(0)
                     }
                 }
             })

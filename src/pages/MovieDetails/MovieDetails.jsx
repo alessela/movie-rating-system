@@ -9,14 +9,14 @@ import Recommendations from "../../components/Recommendations/Recommendations";
 const MovieDetails = () => {
     const { id } = useParams()
     const {movie, loading} = useMovieDetails(id)
-    
+
     let title = movie ? movie.title : ''
     if (movie && movie.original_title !== movie.title) {
         title += ` (${movie.original_title})`
     }
 
     return (
-        <BasePage title={ title }>
+        <BasePage title={ title } key={id}>
             {
                 loading ? <Spinner className="m-1"/> :
                 movie && (

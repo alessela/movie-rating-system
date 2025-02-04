@@ -4,15 +4,15 @@ import { Movie } from "../models/Movie"
 import { useAlert } from "../context/AlertContext"
 
 const useMovieDetails = (id) => {
-    const [movie, setResult] = useState(Movie)
+    const [movie, setMovie] = useState(Movie)
     const [loading, setLoading] = useState(true)
     const url = `${process.env.REACT_APP_TMDB_API_URL}/movie/${id}`
     const showAlert = useAlert()
 
     const fetchMovie = useCallback(async () => {
-        await fetchRequest(url).then(setResult)
+        await fetchRequest(url).then(setMovie)
             .catch(err => {
-                setResult(null)
+                setMovie(null)
                 showAlert(err.message, 'danger')
             })
             .finally(() => setLoading(false))

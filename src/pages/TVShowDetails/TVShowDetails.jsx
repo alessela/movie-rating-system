@@ -16,7 +16,7 @@ const TVShowDetails = () => {
     }
 
   return (
-    <BasePage title={title}>
+    <BasePage title={title} key={id}>
       {
         loading ? <Spinner className="m-1"/> :
         show && (

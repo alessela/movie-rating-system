@@ -13,7 +13,7 @@ const RatingSystem = ({type, id}) => {
     deleteRating } = useFetchRating(type, id)
 
   useEffect(() => {
-    let hoverStars = []
+    const hoverStars = []
 
     for (let i = 0; i < 10; i++) {
       hoverStars.push(
@@ -33,7 +33,7 @@ const RatingSystem = ({type, id}) => {
   return (
     <>
       <div className="d-flex">
-        { stars }
+      { loading ? <Spinner className="m-1"/> : stars }
       </div>
       {
         rating > 0 ?
@@ -44,8 +44,6 @@ const RatingSystem = ({type, id}) => {
           </i>
         </div> : <></>
       }
-      
-      { loading && <Spinner className="m-1"/> }
     </>
   )
 };
