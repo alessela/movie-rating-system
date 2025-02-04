@@ -48,7 +48,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 The page will reload when you make changes.
 You may see some infos, warnings and errors in the console.
 
-# Step 9 Login in the application.
+### Step 9 Login in the application.
 You have just to click on the login button from the middle of the screen and you'll be redirected to the TMDb website, where you need to approve the 3rd Party Authentication Request.
 
 ![image](https://github.com/user-attachments/assets/74b3e45b-458b-4752-b041-c49702e36362)
