@@ -9,6 +9,8 @@ import Recommendations from '../../components/Recommendations/Recommendations';
 const TVShowDetails = () => {
   const { id } = useParams()
   const {show, loading} = useTVShowDetails(id)
+  const first_air_date = new Date(show.first_air_date).toLocaleDateString()
+  const last_air_date = new Date(show.last_air_date).toLocaleDateString()
 
   let title = show ? show.name : ''
     if (show && show.original_name !== show.name) {
@@ -23,8 +25,8 @@ const TVShowDetails = () => {
           <>
           <TVShowTopLevelDetails id={show.id}
                                poster_path={show.poster_path}
-                               first_air_date={show.first_air_date}
-                               last_air_date={show.last_air_date}
+                               first_air_date={first_air_date}
+                               last_air_date={last_air_date}
                                genres={show.genres
                                   .map(genre => genre.name).join(', ')
                                 }

@@ -9,6 +9,7 @@ import Recommendations from "../../components/Recommendations/Recommendations";
 const MovieDetails = () => {
     const { id } = useParams()
     const {movie, loading} = useMovieDetails(id)
+    const release_date = new Date(movie.release_date).toLocaleDateString()
 
     let title = movie ? movie.title : ''
     if (movie && movie.original_title !== movie.title) {
@@ -23,7 +24,7 @@ const MovieDetails = () => {
                     <>
                     <MovieTopLevelDetails id={movie.id}
                         poster_path={movie.poster_path}
-                        release_date={movie.release_date}
+                        release_date={release_date}
                         genres={movie.genres
                           .map(genre => genre.name).join(', ')
                         }
